@@ -1,0 +1,10 @@
+# Ignorar logs e arquivos temporários
+*.log
+*.tmp
+*.swp
+
+# Ignorar diretórios temporários do Tomcat e NGINX
+/tomcat9/logs/*
+/tomcat9/work/*
+/tomcat9/temp/*
+/nginx/logs/*

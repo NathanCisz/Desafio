@@ -1,0 +1,8 @@
+<Context path="/opencms" docBase="/opt/tomcat9/webapps/opencms" reloadable="false" privileged="true">
+    <Resource name="jdbc/opencms" auth="Container" type="javax.sql.DataSource"
+              maxActive="20" maxIdle="10" maxWait="10000"
+              username="opencmsuser" password="1234"
+              driverClassName="org.postgresql.Driver"
+              url="jdbc:postgresql://localhost:5432/opencms_db"/>
+</Context>
+

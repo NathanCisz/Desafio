@@ -1,0 +1,730 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE opencms SYSTEM "http://www.opencms.org/dtd/6.0/opencms-modules.dtd">
+
+<opencms>
+    <modules>
+        <module>
+            <name>org.opencms.base</name>
+            <nicename><![CDATA[OpenCms ADE Configuration]]></nicename>
+            <group>OpenCms ADE</group>
+            <class/>
+            <import-script><![CDATA[# sets access control entries  and properties on folders not exclusively belonging to this module
+chacc '/system/' 'ROLE' 'WORKPLACE_USER' '+I+R'
+chacc '/system/modules/' 'ROLE' 'WORKPLACE_USER' '+I+R+V'
+createFolder '/system/' 'config'
+writeProperty '/system/config/' 'export' 'false'
+writeProperty '/system/workplace/' 'content-encoding' 'UTF-8'
+writeProperty '/system/workplace/' 'export' 'false'
+writeProperty '/system/workplace/' 'login-form' '/system/login/index.html'
+chacc '/system/workplace/' 'GROUP' 'ALL_OTHERS' '+I+O'
+chacc '/system/workplace/' 'ROLE' 'WORKPLACE_USER' '+I+O+R+V'
+createFolder '/system/config/' 'notification'
+writeProperty '/system/config/notification/' 'Title' 'Content Notification'
+writeProperty '/system/workplace/commons/' 'cache' 'false'
+# create folders for categories and set title / german title
+createFolder '/system/' 'categories'
+writeProperty '/system/categories/' 'Title' 'Global categories'
+writeProperty '/system/categories/' 'Title_de' 'Globale Kategorien'
+# create folders for user images
+chacc '/system/userimages/' 'ROLE' 'ELEMENT_AUTHOR' '+I+O+R'
+writeProperty '/system/workplace/editors/' 'cache' 'false'
+chacc '/system/workplace/editors/' 'GROUP' 'ALL_OTHERS' '+I+O'
+chacc '/system/workplace/editors/' 'ROLE' 'ELEMENT_AUTHOR' '+I+O+R+V']]></import-script>
+            <site>/sites/default</site>
+            <export-mode name="reduced"/>
+            <description><![CDATA[Configuration for OpenCms websites.<br>
+<i>&copy; by Alkacon Software GmbH &amp; Co. KG (http://www.alkacon.com).</i>]]></description>
+            <version>18.0.0</version>
+            <checkpoint-time>1729472796172</checkpoint-time>
+            <authorname><![CDATA[Alkacon Software GmbH &amp; Co. KG]]></authorname>
+            <authoremail><![CDATA[sales@alkacon.com]]></authoremail>
+            <datecreated/>
+            <userinstalled/>
+            <dateinstalled/>
+            <dependencies/>
+            <exportpoints>
+                <exportpoint uri="/system/modules/org.opencms.base/classes/" destination="WEB-INF/classes/"/>
+            </exportpoints>
+            <resources>
+                <resource uri="/system/handler/"/>
+                <resource uri="/system/login/"/>
+                <resource uri="/system/modules/org.opencms.base/"/>
+                <resource uri="/system/userimages/temp/"/>
+                <resource uri="/system/workplace/commons/about.jsp"/>
+                <resource uri="/system/workplace/commons/editor-backlink.html"/>
+                <resource uri="/system/workplace/commons/resourceIcon.css"/>
+                <resource uri="/system/workplace/commons/gallery.jsp"/>
+                <resource uri="/system/workplace/commons/open_ade_gallery.jsp"/>
+                <resource uri="/system/workplace/commons/postupload_basicproperties.jsp"/>
+                <resource uri="/system/workplace/commons/postupload_useconfig.jsp"/>
+                <resource uri="/system/workplace/commons/postupload.jsp"/>
+                <resource uri="/system/workplace/commons/properties.jsp"/>
+                <resource uri="/system/workplace/commons/direct_publish.jsp"/>
+                <resource uri="/system/workplace/commons/publish_project.jsp"/>
+                <resource uri="/system/workplace/commons/publish.jsp"/>
+                <resource uri="/system/workplace/commons/download-aliases.jsp"/>
+                <resource uri="/system/workplace/commons/import-aliases.jsp"/>
+                <resource uri="/system/workplace/commons/sitemap.jsp"/>
+                <resource uri="/system/workplace/commons/upload.jsp"/>
+                <resource uri="/system/workplace/commons/uploadAction.jsp"/>
+                <resource uri="/system/workplace/resources/commons/notemplate.png"/>
+                <resource uri="/system/workplace/resources/filetypes/resourceNotFoundBig.png"/>
+                <resource uri="/system/workplace/resources/filetypes/resourceNotFoundSmall.png"/>
+                <resource uri="/system/workplace/editors/acacia/"/>
+                <resource uri="/system/workplace/editors/dialogs/"/>
+                <resource uri="/system/workplace/editors/simple/"/>
+                <resource uri="/system/workplace/editors/simplehtml/"/>
+                <resource uri="/system/workplace/editors/spellcheck"/>
+                <resource uri="/system/workplace/editors/direct_edit.jsp"/>
+                <resource uri="/system/workplace/editors/jquery_direct_edit_include.txt"/>
+                <resource uri="/system/workplace/editors/direct_edit_include.txt"/>
+                <resource uri="/system/workplace/editors/editor.jsp"/>
+                <resource uri="/system/workplace/editors/editor_main.jsp"/>
+                <resource uri="/system/workplace/resources/buttons/anchor.png"/>
+                <resource uri="/system/workplace/resources/buttons/bold.png"/>
+                <resource uri="/system/workplace/resources/buttons/bullist.png"/>
+                <resource uri="/system/workplace/resources/buttons/center.png"/>
+                <resource uri="/system/workplace/resources/buttons/cleanup.png"/>
+                <resource uri="/system/workplace/resources/buttons/color_fill.png"/>
+                <resource uri="/system/workplace/resources/buttons/color_text.png"/>
+                <resource uri="/system/workplace/resources/buttons/copy.png"/>
+                <resource uri="/system/workplace/resources/buttons/cut.png"/>
+                <resource uri="/system/workplace/resources/buttons/details.png"/>
+                <resource uri="/system/workplace/resources/buttons/directedit_cl.png"/>
+                <resource uri="/system/workplace/resources/buttons/directedit_in.png"/>
+                <resource uri="/system/workplace/resources/buttons/directedit_op.png"/>
+                <resource uri="/system/workplace/resources/buttons/editorsearch.png"/>
+                <resource uri="/system/workplace/resources/buttons/elements.png"/>
+                <resource uri="/system/workplace/resources/buttons/elements_in.png"/>
+                <resource uri="/system/workplace/resources/buttons/erase.png"/>
+                <resource uri="/system/workplace/resources/buttons/exit.png"/>
+                <resource uri="/system/workplace/resources/buttons/image.png"/>
+                <resource uri="/system/workplace/resources/buttons/indent.png"/>
+                <resource uri="/system/workplace/resources/buttons/italic.png"/>
+                <resource uri="/system/workplace/resources/buttons/left.png"/>
+                <resource uri="/system/workplace/resources/buttons/link.png"/>
+                <resource uri="/system/workplace/resources/buttons/numlist.png"/>
+                <resource uri="/system/workplace/resources/buttons/outdent.png"/>
+                <resource uri="/system/workplace/resources/buttons/paste.png"/>
+                <resource uri="/system/workplace/resources/buttons/properties.png"/>
+                <resource uri="/system/workplace/resources/buttons/properties_in.png"/>
+                <resource uri="/system/workplace/resources/buttons/redo.png"/>
+                <resource uri="/system/workplace/resources/buttons/right.png"/>
+                <resource uri="/system/workplace/resources/buttons/save.png"/>
+                <resource uri="/system/workplace/resources/buttons/save_exit.png"/>
+                <resource uri="/system/workplace/resources/buttons/specialchar.png"/>
+                <resource uri="/system/workplace/resources/buttons/table.png"/>
+                <resource uri="/system/workplace/resources/buttons/table_td.png"/>
+                <resource uri="/system/workplace/resources/buttons/table_tr.png"/>
+                <resource uri="/system/workplace/resources/buttons/underline.png"/>
+                <resource uri="/system/workplace/resources/buttons/undo.png"/>
+                <resource uri="/system/workplace/resources/buttons/xmledit.png"/>
+                <resource uri="/system/workplace/resources/buttons/xmledit_add.png"/>
+                <resource uri="/system/workplace/resources/buttons/xmledit_del.png"/>
+                <resource uri="/system/workplace/resources/buttons/xmledit_del_add.png"/>
+                <resource uri="/system/workplace/resources/editors/directedit/"/>
+                <resource uri="/system/workplace/resources/editors/simple/"/>
+                <resource uri="/system/workplace/resources/editors/simplehtml/"/>
+                <resource uri="/system/workplace/resources/editors/xmlcontent/"/>
+                <resource uri="/system/workplace/editors/codemirror/"/>
+                <resource uri="/system/workplace/editors/tinymce/base_content.css"/>
+                <resource uri="/system/workplace/editors/tinymce/filebrowser_gallery_integrator.js"/>
+                <resource uri="/system/workplace/editors/tinymce/image_popup.html"/>
+                <resource uri="/system/workplace/editors/tinymce/integrator.js"/>
+                <resource uri="/system/workplace/editors/tinymce/opencms_plugin.css"/>
+                <resource uri="/system/workplace/editors/tinymce/opencms_plugin.js"/>
+            </resources>
+            <excluderesources/>
+            <parameters/>
+            <resourcetypes>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlContainerPage" name="containerpage" id="13">
+                    <param name="formatter_gallery_preview">/system/workplace/editors/ade/container-preview-formatter.jsp</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlAdeConfiguration" name="groupcontainer" id="17">
+                    <properties>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[true]]></value>
+                        </property>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.containerpage/schemas/group_container.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlAdeConfiguration" name="elementview" id="310">
+                    <properties>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[true]]></value>
+                        </property>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/element_view.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeJsp" name="containerpage_template" id="21"/>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlContent" name="function" id="22">
+                    <param name="schema">/system/modules/org.opencms.ade.containerpage/schemas/function.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeFunctionConfig" name="function_config" id="29">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.containerpage/schemas/function-v2.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeHtmlRedirect" name="htmlredirect" id="15">
+                    <properties>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[all]]></value>
+                        </property>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.sitemap/schemas/redirect.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeFolderSubSitemap" name="subsitemap" id="23"/>
+                <type class="org.opencms.file.types.CmsResourceTypeSubsitemapContentFolder" name="content_folder" id="24"/>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlAdeConfiguration" name="sitemap_config" id="14">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[all]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/sitemap_config.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlAdeConfiguration" name="module_config" id="28">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[all]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/module_config.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlAdeConfiguration" name="formatter_config" id="308">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[all]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/formatters/new_formatter.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeSeoFile" name="seo_file" id="305">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[all]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/seo_file.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlAdeConfiguration" name="inheritance_group" id="303">
+                    <properties>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[true]]></value>
+                        </property>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.containerpage/schemas/inheritance_group.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlContent" name="inheritance_config" id="304">
+                    <properties>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[all]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.containerpage/schemas/inheritance_config.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlContent" name="xmlvfsbundle" id="306">
+                    <properties>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[all]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/xmlvfsbundle.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypePlain" name="propertyvfsbundle" id="307">
+                    <properties>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[all]]></value>
+                        </property>
+                    </properties>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlAdeConfiguration" name="sitemap_master_config" id="313">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[true]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/sitemap_master_config.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlContainerPage" name="modelgroup" id="314">
+                    <properties>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[true]]></value>
+                        </property>
+                    </properties>
+                    <param name="formatter_gallery_preview">/system/workplace/editors/ade/container-preview-formatter.jsp</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeMacroFormatter" name="macro_formatter" id="315">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>cache</name>
+                            <value><![CDATA[container-element;locale;uri]]></value>
+                        </property>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[all]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/formatters/macro_formatter.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlAdeConfiguration" name="settings_config" id="316">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[all]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/formatters/settings_config.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlAdeConfiguration" name="bundledescriptor" id="320">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[all]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/bundledescriptor.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlAdeConfiguration" name="listconfig" id="321">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/list_config.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeMacroFormatter" name="flex_formatter" id="322">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>cache</name>
+                            <value><![CDATA[container-element;locale;uri]]></value>
+                        </property>
+                        <property>
+                            <name>search.exclude</name>
+                            <value><![CDATA[all]]></value>
+                        </property>
+                    </properties>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/formatters/flex_formatter.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlAdeConfiguration" name="ugc_config" id="309">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                    </properties>
+                    <param name="resource.flag.internal">true</param>
+                    <param name="schema">/system/modules/org.opencms.ugc/schemas/ugc_config.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlContent" name="jsp-search" id="311">
+                    <param name="schema">/system/modules/org.opencms.jsp.search/schemas/jsp-search.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlAdeConfiguration" name="site_plugin" id="323">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                    </properties>
+                    <param name="resource.flag.internal">true</param>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/site_plugin.xsd</param>
+                </type>
+                <type class="org.opencms.file.types.CmsResourceTypeXmlAdeConfiguration" name="attr_editor_config" id="324">
+                    <properties>
+                        <property>
+                            <name>locale-available</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                        <property>
+                            <name>locale</name>
+                            <value><![CDATA[en]]></value>
+                        </property>
+                    </properties>
+                    <param name="resource.flag.internal">true</param>
+                    <param name="schema">/system/modules/org.opencms.ade.config/schemas/attr_editor_config.xsd</param>
+                </type>
+            </resourcetypes>
+            <explorertypes>
+                <explorertype name="subsitemap" key="fileicon.subsitemap" smalliconstyle="oc-icon-16-subsitemap" bigiconstyle="oc-icon-24-subsitemap" reference="folder">
+                    <newresource creatable="true" order="490" autosetnavigation="false" autosettitle="false" info="desc.subsitemap"/>
+                </explorertype>
+                <explorertype name="modelpage" key="fileicon.modelpage" smalliconstyle="oc-icon-16-modelpage" bigiconstyle="oc-icon-24-modelpage" reference="folder">
+                    <newresource creatable="false" order="490" autosetnavigation="false" autosettitle="false" info=""/>
+                </explorertype>
+                <explorertype name="category" key="fileicon.category" smalliconstyle="oc-icon-16-category" bigiconstyle="oc-icon-24-category" reference="folder">
+                    <newresource creatable="false" order="490" autosetnavigation="false" autosettitle="false" info=""/>
+                </explorertype>
+                <explorertype name="htmlredirect" key="fileicon.htmlredirect" smalliconstyle="oc-icon-16-htmlredirect" bigiconstyle="oc-icon-24-htmlredirect" reference="xmlcontent">
+                    <newresource creatable="true" order="27" autosetnavigation="true" autosettitle="true" info="desc.htmlredirect"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.EDITOR" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="containerpage" key="fileicon.containerpage" smalliconstyle="oc-icon-16-containerpage" bigiconstyle="oc-icon-24-containerpage" reference="xmlcontent">
+                    <newresource creatable="true" order="25" autosetnavigation="false" autosettitle="false" info="desc.containerpage"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.EDITOR" permissions="+r+v+w+c"/>
+                        <accessentry principal="ROLE.ELEMENT_AUTHOR" permissions="+r+v+w"/>
+                    </accesscontrol>
+                    <editoptions>
+                        <defaultproperties enabled="true" shownavigation="true">
+                            <defaultproperty name="Title"/>
+                            <defaultproperty name="Keywords"/>
+                            <defaultproperty name="Description"/>
+                        </defaultproperties>
+                    </editoptions>
+                </explorertype>
+                <explorertype name="groupcontainer" key="fileicon.groupcontainer" smalliconstyle="oc-icon-16-elementgroup" bigiconstyle="oc-icon-24-elementgroup" reference="xmlcontent">
+                    <newresource creatable="true" order="26" autosetnavigation="false" autosettitle="false" info="desc.groupcontainer"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.ELEMENT_AUTHOR" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="elementview" key="fileicon.elementview" smalliconstyle="oc-icon-16-function" bigiconstyle="oc-icon-24-function" reference="xmlcontent">
+                    <newresource creatable="true" order="999" autosetnavigation="false" autosettitle="false" info="desc.elementview"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.DEVELOPER" permissions="+r+v+w+c"/>
+                        <accessentry principal="ROLE.WORKPLACE_USER" permissions="+r+v-w-c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="function" key="fileicon.function" smalliconstyle="oc-icon-16-function" bigiconstyle="oc-icon-24-function" reference="xmlcontent">
+                    <newresource creatable="true" order="999" autosetnavigation="false" autosettitle="false" info="desc.function"/>
+                    <accesscontrol>
+                        <accessentry principal="DEFAULT" permissions="+r+v"/>
+                        <accessentry principal="ROLE.DEVELOPER" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="function_config" key="fileicon.function_config" smalliconstyle="oc-icon-16-function" bigiconstyle="oc-icon-24-function" reference="xmlcontent">
+                    <newresource creatable="true" order="999" autosetnavigation="false" autosettitle="false" info="desc.function"/>
+                    <accesscontrol>
+                        <accessentry principal="DEFAULT" permissions="+r+v"/>
+                        <accessentry principal="ROLE.DEVELOPER" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="seo_file" key="fileicon.seo_file" smalliconstyle="oc-icon-16-jsp_search" bigiconstyle="oc-icon-24-jsp_search" reference="xmlcontent">
+                    <newresource creatable="true" order="998" autosetnavigation="false" autosettitle="false" info="desc.seo_file"/>
+                </explorertype>
+                <explorertype name="containerpage_template" key="fileicon.containerpage_template" smalliconstyle="oc-icon-16-containerpage_template" bigiconstyle="oc-icon-24-containerpage_template" reference="jsp">
+                    <newresource creatable="true" order="22" autosetnavigation="false" autosettitle="false" info="desc.containerpage_template"/>
+                </explorertype>
+                <explorertype name="content_folder" key="fileicon.configfolder" smalliconstyle="oc-icon-16-configfolder" bigiconstyle="oc-icon-24-configfolder" reference="folder">
+                    <newresource creatable="true" order="491" autosetnavigation="false" autosettitle="false" info="desc.configfolder"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.EDITOR" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="sitemap_config" key="fileicon.sitemap_config" smalliconstyle="oc-icon-16-sitemap_config" bigiconstyle="oc-icon-24-sitemap_config" reference="xmlcontent">
+                    <newresource creatable="true" order="21" autosetnavigation="false" autosettitle="false" info="desc.sitemap_config"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.EDITOR" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                    <editoptions>
+                        <defaultproperties enabled="true" shownavigation="true">
+                            <defaultproperty name="Title"/>
+                            <defaultproperty name="Keywords"/>
+                            <defaultproperty name="Description"/>
+                        </defaultproperties>
+                    </editoptions>
+                </explorertype>
+                <explorertype name="module_config" key="fileicon.module_config" smalliconstyle="oc-icon-16-module_config" bigiconstyle="oc-icon-24-module_config" reference="xmlcontent">
+                    <newresource creatable="true" order="22" autosetnavigation="false" autosettitle="false" info="desc.module_config"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.WORKPLACE_USER" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="sitemap_master_config" key="fileicon.sitemap_master_config" smalliconstyle="oc-icon-16-module_config" bigiconstyle="oc-icon-24-module_config" reference="xmlcontent">
+                    <newresource creatable="true" order="23" autosetnavigation="false" autosettitle="false" info="desc.sitemap_master_config"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.WORKPLACE_USER" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="formatter_config" key="fileicon.formatter_config" smalliconstyle="oc-icon-16-formatter_config" bigiconstyle="oc-icon-24-formatter_config" reference="xmlcontent">
+                    <newresource creatable="true" order="23" autosetnavigation="false" autosettitle="false" info="desc.formatter_config"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.WORKPLACE_USER" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="settings_config" key="fileicon.settings_config" smalliconstyle="oc-icon-16-formatter_config" bigiconstyle="oc-icon-24-formatter_config" reference="xmlcontent">
+                    <newresource creatable="true" order="23" autosetnavigation="false" autosettitle="false" info="desc.settings_config"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.WORKPLACE_USER" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="inheritance_group" key="fileicon.inheritance_group" smalliconstyle="oc-icon-16-inheritancegroup" bigiconstyle="oc-icon-24-inheritancegroup" reference="xmlcontent">
+                    <newresource creatable="true" order="27" autosetnavigation="false" autosettitle="false" info="desc.inheritance_group"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.ELEMENT_AUTHOR" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="inheritance_config" key="fileicon.inheritance_config" smalliconstyle="oc-icon-16-inheritancegroup" bigiconstyle="oc-icon-24-inheritancegroup" reference="xmlcontent">
+                    <newresource creatable="true" order="28" autosetnavigation="false" autosettitle="false" info="desc.inheritance_config"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.ELEMENT_AUTHOR" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="xmlvfsbundle" key="fileicon.xmlvfsbundle" smalliconstyle="oc-icon-16-localization" bigiconstyle="oc-icon-24-localization" reference="xmlcontent">
+                    <newresource creatable="true" order="28" autosetnavigation="false" autosettitle="false" info="desc.xmlvfsbundle"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.WORKPLACE_USER" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="propertyvfsbundle" key="fileicon.propertyvfsbundle" smalliconstyle="oc-icon-16-localization" bigiconstyle="oc-icon-24-localization" reference="plain">
+                    <newresource creatable="true" order="30" autosetnavigation="false" autosettitle="false" info="desc.propertyvfsbundle"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.WORKPLACE_USER" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="modelgroup" key="fileicon.modelgroup" smalliconstyle="oc-icon-16-modelgroup_reuse" bigiconstyle="oc-icon-24-modelgroup_reuse" reference="xmlcontent">
+                    <newresource creatable="true" order="50" autosetnavigation="false" autosettitle="false" info="desc.modelgroup"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.DEVELOPER" permissions="+r+v+w+c"/>
+                        <accessentry principal="ROLE.ELEMENT_AUTHOR" permissions="+r+v"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="macro_formatter" key="fileicon.macro_formatter" smalliconstyle="oc-icon-16-formatter_config" bigiconstyle="oc-icon-24-formatter_config" reference="xmlcontent">
+                    <newresource creatable="true" order="24" autosetnavigation="false" autosettitle="false" info="desc.macro_formatter"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.DEVELOPER" permissions="+r+v+w+c"/>
+                        <accessentry principal="ROLE.ELEMENT_AUTHOR" permissions="+r+v"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="view_basic" key="fileicon.view_basic" reference="folder" isview="true">
+                    <newresource creatable="false" order="1000" autosetnavigation="false" autosettitle="false" info="desc.otheroptions"/>
+                    <accesscontrol>
+                        <accessentry principal="DEFAULT" permissions="+r+v"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="view_folders" key="fileicon.view_folders" reference="folder" isview="true">
+                    <newresource creatable="false" order="2100" autosetnavigation="false" autosettitle="false" info="desc.otheroptions"/>
+                    <accesscontrol>
+                        <accessentry principal="DEFAULT" permissions="+r+v"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="view_configs" key="fileicon.view_configs" reference="folder" isview="true">
+                    <newresource creatable="false" order="2200" autosetnavigation="false" autosettitle="false" info="desc.otheroptions"/>
+                    <accesscontrol>
+                        <accessentry principal="DEFAULT" permissions="+r+v"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="view_other" key="fileicon.view_other" reference="folder" isview="true">
+                    <newresource creatable="false" order="2300" autosetnavigation="false" autosettitle="false" info=""/>
+                    <accesscontrol>
+                        <accessentry principal="DEFAULT" permissions="+r+v"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="bundledescriptor" key="fileicon.bundledescriptor" smalliconstyle="oc-icon-16-localization_descriptor" bigiconstyle="oc-icon-24-localization_descriptor" reference="xmlcontent">
+                    <newresource creatable="true" order="29" autosetnavigation="false" autosettitle="false" info="desc.bundledescriptor"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.WORKPLACE_USER" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="listconfig" key="fileicon.listconfig" smalliconstyle="oc-icon-16-list" bigiconstyle="oc-icon-24-list" reference="xmlcontent">
+                    <newresource creatable="true" order="29" autosetnavigation="false" autosettitle="false" info="desc.listconfig"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.EDITOR" permissions="+r+v"/>
+                        <accessentry principal="ROLE.LIST_EDITOR" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="flex_formatter" key="fileicon.flex_formatter" smalliconstyle="oc-icon-16-formatter_config" bigiconstyle="oc-icon-24-formatter_config" reference="xmlcontent">
+                    <newresource creatable="true" order="24" autosetnavigation="false" autosettitle="false" info="desc.flex_formatter"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.DEVELOPER" permissions="+r+v+w+c"/>
+                        <accessentry principal="ROLE.ELEMENT_AUTHOR" permissions="+r+v"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="ugc_config" key="fileicon.ugc_config" smalliconstyle="oc-icon-16-module_config" bigiconstyle="oc-icon-24-module_config" reference="xmlcontent">
+                    <newresource creatable="true" order="23" autosetnavigation="false" autosettitle="false" info="desc.ugc_config"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.WORKPLACE_USER" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="jsp-search" key="fileicon.jsp-search" smalliconstyle="oc-icon-16-jsp_search" bigiconstyle="oc-icon-24-jsp_search" reference="xmlcontent">
+                    <newresource creatable="true" order="10" autosetnavigation="false" autosettitle="false" info="desc.jsp-search" key="title.jsp-search"/>
+                </explorertype>
+                <explorertype name="site_plugin" key="fileicon.site_plugin" smalliconstyle="oc-icon-16-formatter_config" bigiconstyle="oc-icon-24-formatter_config" reference="xmlcontent">
+                    <newresource creatable="true" order="23" autosetnavigation="false" autosettitle="false" info="desc.site_plugin"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.WORKPLACE_USER" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+                <explorertype name="attr_editor_config" key="fileicon.attr_editor_config" smalliconstyle="oc-icon-16-formatter_config" bigiconstyle="oc-icon-24-formatter_config" reference="xmlcontent">
+                    <newresource creatable="true" order="23" autosetnavigation="false" autosettitle="false" info="desc.attr_editor_config"/>
+                    <accesscontrol>
+                        <accessentry principal="ROLE.WORKPLACE_USER" permissions="+r+v+w+c"/>
+                    </accesscontrol>
+                </explorertype>
+            </explorertypes>
+        </module>
+        <module>
+            <name>org.opencms.configuration</name>
+            <nicename><![CDATA[OpenCms configuration module]]></nicename>
+            <group>OpenCms Editors</group>
+            <class/>
+            <site>/sites/default</site>
+            <export-mode name="reduced"/>
+            <description><![CDATA[<p>Contains various configuration files to specify OpenCms core behavior.</p>
+<p><i>&copy; by Alkacon Software GmbH &amp; Co. KG (http://www.alkacon.com).</i></p>]]></description>
+            <version>18.0.0</version>
+            <checkpoint-time>1729472802399</checkpoint-time>
+            <authorname><![CDATA[Alkacon Software GmbH &amp; Co. KG]]></authorname>
+            <authoremail><![CDATA[info@alkacon.com]]></authoremail>
+            <datecreated/>
+            <userinstalled/>
+            <dateinstalled/>
+            <dependencies>
+                <dependency name="org.opencms.base" version="13.0.0"/>
+            </dependencies>
+            <exportpoints/>
+            <resources>
+                <resource uri="/system/config/linkexcludes"/>
+                <resource uri="/system/config/page.dtd"/>
+                <resource uri="/system/config/decoration/"/>
+                <resource uri="/system/config/showversion"/>
+                <resource uri="/system/config/templatecontexts.json"/>
+                <resource uri="/system/config/notification/notification"/>
+                <resource uri="/system/config/notification/publish-notification"/>
+                <resource uri="/system/config/notification/workflow-notification"/>
+                <resource uri="/system/config/notification/password-change-notification"/>
+                <resource uri="/system/config/notification/password-new-password-from-admin-notification"/>
+                <resource uri="/system/config/notification/password-new-user-notification"/>
+                <resource uri="/system/config/wysiwyg/"/>
+            </resources>
+            <excluderesources/>
+            <parameters/>
+        </module>
+    </modules>
+</opencms>

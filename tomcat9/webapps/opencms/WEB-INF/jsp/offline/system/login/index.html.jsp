@@ -1,0 +1,1 @@
+<%@ page pageEncoding="UTF-8" %><%@ page import="org.opencms.ui.login.*" %><%= CmsLoginUI.displayVaadinLoginDialog(request, response) %>
